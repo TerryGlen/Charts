@@ -24,4 +24,9 @@ class ExampleUnitTest {
     fun addition_isCorrectPartDeux() {
         assertNotEquals(8, 4 + 4)
     }
+
+    @Test
+    fun addition_isCorrectPartThree() {
+        assertNotEquals(20, 10 + 10)
+    }
 }
