@@ -7,8 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <io.data2viz.viz.VizContainerView
+    <com.github.mikephil.charting.charts.CandleStickChart
+        android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
