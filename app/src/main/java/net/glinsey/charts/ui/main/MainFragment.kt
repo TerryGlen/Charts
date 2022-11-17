@@ -54,6 +54,7 @@ class MainFragment : Fragment() {
 
     private fun setupChart(){
         with(binding){
+            chart.renderer = CustomCandleStickChartRender(chart, chart.animator, chart.viewPortHandler)
             chart.setBackgroundColor(Color.WHITE)
             chart.setMaxVisibleValueCount(0)
             chart.setPinchZoom(true)
@@ -86,6 +87,7 @@ class MainFragment : Fragment() {
        // val values = randomlyGenerateChartData(progress)
         val dummyData: List<Pair<Int, Int>> = listOf(Pair(60, 65), Pair(65, 70), Pair(70,80), Pair(80, 100), Pair(100, 85), Pair(90,100),
         Pair(100, 121), Pair(103, 123), Pair(98, 115), Pair(123, 130), Pair(130, 138), Pair(133, 141), Pair(128, 135), Pair(125, 138),
+          Pair(130, 123),Pair(131, 140), Pair(130, 123), Pair(131, 140), Pair(140, 145), Pair(141, 145), Pair(140, 145),
             )
 
 
@@ -100,7 +102,8 @@ class MainFragment : Fragment() {
         set1.shadowColor = Color.TRANSPARENT
         set1.shadowWidth = 0.7f
         val orange = Color.rgb(255,165,0)
-        set1.colors = listOf(Color.GRAY, Color.GRAY, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.GREEN, Color.GREEN, Color.GREEN, Color.GREEN, orange, orange, orange, orange)
+        set1.colors = listOf(Color.GRAY, Color.GRAY, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.GREEN, Color.GREEN, Color.GREEN, Color.GREEN, orange, orange, orange, orange,
+        Color.GREEN, orange, Color.GREEN, orange, orange, orange, orange)
         set1.decreasingColor = ColorTemplate.COLOR_NONE
         set1.decreasingPaintStyle = Paint.Style.FILL
         set1.increasingColor = ColorTemplate.COLOR_NONE
