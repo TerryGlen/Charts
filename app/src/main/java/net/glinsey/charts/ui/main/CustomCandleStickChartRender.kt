@@ -20,9 +20,11 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
     private val mOpenBuffers = FloatArray(4)
     private val mCloseBuffers = FloatArray(4)
 
-    override fun drawDataSet(c: Canvas?, dataSet: ICandleDataSet?) {
 
-        val trans = mChart.getTransformer(dataSet!!.axisDependency)
+
+    override fun drawDataSet(c: Canvas, dataSet: ICandleDataSet) {
+
+        val trans = mChart.getTransformer(dataSet.axisDependency)
 
         val phaseY = mAnimator.phaseY
         val barSpace = dataSet.barSpace
@@ -83,7 +85,7 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
                         if (dataSet.shadowColor == ColorTemplate.COLOR_NONE) dataSet.getColor(j) else dataSet.shadowColor
                 }
                 mRenderPaint.style = Paint.Style.STROKE
-                c!!.drawLines(mShadowBuffers, mRenderPaint)
+                c.drawLines(mShadowBuffers, mRenderPaint)
 
                 // calculate the body
                 mBodyBuffers[0] = xPos - 0.5f + barSpace
@@ -100,11 +102,6 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
                         mRenderPaint.color = dataSet.decreasingColor
                     }
                     mRenderPaint.style = dataSet.decreasingPaintStyle
-//                    c?.drawRect(
-//                        mBodyBuffers[0], mBodyBuffers[3],
-//                        mBodyBuffers[2], mBodyBuffers[1],
-//                        mRenderPaint
-//                    )
                     c.drawRoundRect(
                         mBodyBuffers[0], mBodyBuffers[3],
                         mBodyBuffers[2], mBodyBuffers[1],
@@ -118,11 +115,6 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
                         mRenderPaint.color = dataSet.increasingColor
                     }
                     mRenderPaint.style = dataSet.increasingPaintStyle
-//                    c?.drawRect(
-//                        mBodyBuffers[0], mBodyBuffers[1],
-//                        mBodyBuffers[2], mBodyBuffers[3],
-//                        mRenderPaint
-//                    )
                     c?.drawRoundRect(
                         mBodyBuffers[0], mBodyBuffers[1],
                         mBodyBuffers[2], mBodyBuffers[3],
@@ -135,7 +127,7 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
                     } else {
                         mRenderPaint.color = dataSet.neutralColor
                     }
-                    c?.drawLine(
+                    c.drawLine(
                         mBodyBuffers[0], mBodyBuffers[1],
                         mBodyBuffers[2], mBodyBuffers[3],
                         mRenderPaint
@@ -167,7 +159,7 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
                         j
                     ) else dataSet.neutralColor
                 mRenderPaint.color = barColor
-                c!!.drawLine(
+                c.drawLine(
                     mRangeBuffers[0], mRangeBuffers[1],
                     mRangeBuffers[2], mRangeBuffers[3],
                     mRenderPaint
