@@ -1,4 +1,4 @@
-package net.glinsey.charts.ui.main
+package net.glinsey.charts.model.charts
 
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -9,9 +9,9 @@ import com.github.mikephil.charting.renderer.CandleStickChartRenderer
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.ViewPortHandler
 
-class CustomCandleStickChartRender( chart: CandleDataProvider,
-                                    animator: ChartAnimator,
-                                    viewPortHandler: ViewPortHandler): CandleStickChartRenderer(chart, animator, viewPortHandler)
+class RangeChartRender(chart: CandleDataProvider,
+                       animator: ChartAnimator,
+                       viewPortHandler: ViewPortHandler): CandleStickChartRenderer(chart, animator, viewPortHandler)
 {
 
     private val mShadowBuffers = FloatArray(8)
@@ -19,7 +19,6 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
     private val mRangeBuffers = FloatArray(4)
     private val mOpenBuffers = FloatArray(4)
     private val mCloseBuffers = FloatArray(4)
-
 
 
     override fun drawDataSet(c: Canvas, dataSet: ICandleDataSet) {
@@ -178,3 +177,4 @@ class CustomCandleStickChartRender( chart: CandleDataProvider,
         }
     }
 }
+

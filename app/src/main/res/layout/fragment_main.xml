@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <com.github.mikephil.charting.charts.CandleStickChart
+    <net.glinsey.charts.model.charts.RangeChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="200dp"
