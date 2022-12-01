@@ -16,10 +16,14 @@ jobs:
         with:
           java-version: 11
 
-      # Execute unit tests
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
+      
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: JUnit Tests
+          path: app/build/test-results/testDebugUnitTest/TEST-*.xml
+          reporter: java-junit
 
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
