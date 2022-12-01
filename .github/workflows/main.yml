@@ -26,4 +26,5 @@ jobs:
           name: JUnit Tests
           path: app/build/test-results/testDebugUnitTest/TEST-*.xml
           reporter: java-junit
+          list-suites: 'failed'
 
